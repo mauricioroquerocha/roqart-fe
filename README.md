@@ -1,5 +1,3 @@
-## Next.js App Router Course - Starter
+## Project in progress ...
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
-
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+E-commerce web for a 3D company store
