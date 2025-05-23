@@ -14,15 +14,16 @@ const config: Config = {
   		},
   		colors: {
   			background: '#E1E3E2',
+			backgroundSecondary: '#F9F9F9',
 			border: '#EDEEED',
-			primary: '#454545'
+			primary: '#454545',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	},
+  		},
+    },
   	keyframes: {
   		shimmer: {
   			'100%': {
