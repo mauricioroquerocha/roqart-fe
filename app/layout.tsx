@@ -1,6 +1,7 @@
 import NavBar from '@/components/ui/NavBar';
 import { montserrat } from './ui/fonts';
 import './ui/global.css';
+import React from 'react';
 
 export default function RootLayout({
   children,
@@ -10,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
-        <div className="gap-4 flex flex-col">
+        <div className="flex flex-col gap-4">
           <NavBar></NavBar>
           {children}
         </div>

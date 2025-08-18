@@ -1,22 +1,25 @@
-import { ItemApi } from '@/lib/ItemApi';
-import ItemCard from './ItemCard';
-import { Item } from '@/types';
+import { ProductApi } from '@/lib/ProductApi';
+import ProductCard from './ProductCard';
+import { Product } from '@/types';
+import { formatPriceRange } from '@/lib/utils';
 
 export default async function StorePage() {
-  const items = (await ItemApi.getAllItems()).data;
+  const { data: products } = await ProductApi.getAllProducts();
 
   return (
-    <div className="px-28 flex flex-row justify-center">
-      <div className="grid grid-cols-5 gap-4">
-        {items.map((item: Item) => (
-          <ItemCard
-            url={`/items/${item.id}`}
-            name={item.name}
-            description={item.decription}
-          ></ItemCard>
+    <div className="flex flex-row justify-center px-28">
+      <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5">
+        {products.map((product: Product) => (
+          <ProductCard
+            key={product.id}
+            url={`/products/${product.id}`}
+            name={product.title}
+            description={product.description}
+            price={formatPriceRange(product.priceRange)}
+          ></ProductCard>
         ))}
       </div>
-      <div className="w-80 h-fit">
+      <div className="h-fit w-80">
         <div className="h-96">{/* Filters */}</div>
       </div>
     </div>
