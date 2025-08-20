@@ -13,9 +13,8 @@ export default async function StorePage() {
           <ProductCard
             key={product.id}
             url={`/products/${product.id}`}
-            name={product.title}
-            description={product.description}
             price={formatPriceRange(product.priceRange)}
+            {...product}
           ></ProductCard>
         ))}
       </div>

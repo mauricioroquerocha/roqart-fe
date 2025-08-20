@@ -10,6 +10,7 @@ export interface Product {
   description: string;
   priceRange: ProductPriceRange;
   variants: Variant[];
+  thumbnail: string;
 }
 
 export interface ProductPriceRange {

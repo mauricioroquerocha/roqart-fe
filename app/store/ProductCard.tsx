@@ -4,27 +4,28 @@ import Link from 'next/link';
 
 type Props = {
   url: string;
-  name: string;
+  title: string;
   description: string;
   price: string;
+  thumbnail: string;
 };
 
-export default function ProductCard({ url, name, description, price }: Props) {
+export default function ProductCard({
+  url,
+  title,
+  description,
+  price,
+  thumbnail,
+}: Props) {
   return (
     <Link href={url}>
       <div className="size-fit overflow-hidden rounded-xl border border-border">
         <div className="relative flex h-48 w-full justify-center bg-background px-5 py-2">
-          <Image
-            alt=""
-            height={192}
-            width={180}
-            object-fit="cover"
-            src="/diablada-item.png"
-          />
+          <Image alt="" fill object-fit="cover" src={thumbnail} />
         </div>
         <div className="h-24 w-56 bg-backgroundSecondary px-5 py-3">
           <TypographyH3 className="line-clamp-1 overflow-hidden text-ellipsis">
-            {name}
+            {title}
           </TypographyH3>
           <TypographyH4 className="line-clamp-1 overflow-hidden text-ellipsis text-gray-600">
             {description}
