@@ -1,13 +1,23 @@
-const baseUrl: string = 'http://localhost:9000/'; // Set your default base URL here
+const baseUrl: string =
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'; // Set your default base URL here
 const defaultHeaders: Record<string, string> = {
   'Content-Type': 'application/json',
-  'x-publishable-api-key':
-    'pk_fce0a0afda5564befb7821b7d907b283c5e5bdd7b51b7408ec9a8c2c4e73dc4a',
+  'x-publishable-api-key': process.env.PUBLISHABLE_API_KEY || '',
 };
 
 export const Api = {
-  async get<T>(endpoint: string, headers?: Record<string, string>): Promise<T> {
-    const res = await fetch(`${baseUrl}${endpoint}`, {
+  async get<T>(
+    endpoint: string,
+    headers?: Record<string, string>,
+    searchParams?: Record<string, string>
+  ): Promise<T> {
+    const url = new URL(endpoint, baseUrl);
+
+    if (searchParams) {
+      url.search = new URLSearchParams(searchParams).toString();
+    }
+
+    const res = await fetch(url.toString(), {
       method: 'GET',
       headers: { ...defaultHeaders, ...headers },
     });

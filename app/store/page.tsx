@@ -1,7 +1,6 @@
-import { ProductApi } from '@/lib/ProductApi';
-import ProductCard from './ProductCard';
+import { ProductApi } from '@/lib/api/ProductApi';
 import { Product } from '@/types';
-import { formatPriceRange } from '@/lib/utils';
+import ProductCard from './ProductCard';
 
 export default async function StorePage() {
   const { data: products } = await ProductApi.getAllProducts();
@@ -13,8 +12,7 @@ export default async function StorePage() {
           <ProductCard
             key={product.id}
             url={`/products/${product.id}`}
-            price={formatPriceRange(product.priceRange)}
-            {...product}
+            product={product}
           ></ProductCard>
         ))}
       </div>

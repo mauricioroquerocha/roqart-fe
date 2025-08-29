@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/Button';
+import { selectCurrency } from '@/lib/redux/slices/currencySlice';
 import {
   Carousel,
   CarouselContent,
@@ -13,13 +13,38 @@ import {
   TypographyH2,
   TypographyP,
 } from '@/components/ui/typography';
-import { Product } from '@/types';
+import { ProductApi } from '@/lib/api/ProductApi';
+import { getCurrencySymbol, Product, Variant } from '@/types';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAppSelector } from '@/lib/redux/hooks';
+import { Button } from '@/components/ui/button';
 
-export default function ProductClient({ product }: { product: Product }) {
-  const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
-  const currencySymbol = '$';
+export default function ProductClient({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const [selectedVariant, setSelectedVariant] = useState<Variant>();
+
+  const currency = useAppSelector(selectCurrency);
+  const [product, setProduct] = useState<Product>();
+  const currencySymbol = getCurrencySymbol(currency);
+
+  useEffect(() => {
+    async function fetchProduct() {
+      const { id } = await params;
+
+      const { data } = await ProductApi.getProductById(id);
+      setProduct(data);
+      setSelectedVariant(data.variants[0]);
+    }
+    fetchProduct();
+  }, [params]);
+
+  if (!product || !selectedVariant) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col gap-4 px-96">
@@ -78,30 +103,6 @@ export default function ProductClient({ product }: { product: Product }) {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      {/* <ul className="flex w-fit flex-row gap-4">
-          {product.variants.map((variant) => {
-            return (
-              <li
-                key={variant.id}
-                className="relative size-44 rounded-xl border border-border bg-background p-1"
-              >
-                <div
-                  onClick={() => {
-                    setSelectedVariant(variant);
-                  }}
-                  className="cursor-pointer"
-                >
-                  <Image
-                    alt=""
-                    fill
-                    objectFit="cover"
-                    src="/diablada-item.png"
-                  />
-                </div>
-              </li>
-            );
-          })}
-        </ul> */}
     </div>
   );
 }
