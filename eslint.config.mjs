@@ -13,7 +13,15 @@ const compat = new FlatCompat({
 
 /** @type {import('eslint').Linter.Config[]} */
 const config = [
-  { ignores: ['.next/**', 'public/**', 'next.config.js', 'postcss.config.js'] },
+  {
+    ignores: [
+      '.next/**',
+      'public/**',
+      'next.config.js',
+      'postcss.config.js',
+      'components/ui',
+    ],
+  },
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,

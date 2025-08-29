@@ -2,6 +2,7 @@ import NavBar from '@/components/ui/NavBar';
 import { montserrat } from './ui/fonts';
 import './ui/global.css';
 import React from 'react';
+import StoreProvider from './StoreProvider';
 
 export default function RootLayout({
   children,
@@ -12,8 +13,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
         <div className="flex flex-col gap-4">
-          <NavBar></NavBar>
-          {children}
+          <StoreProvider>
+            <NavBar></NavBar>
+            {children}
+          </StoreProvider>
         </div>
       </body>
     </html>
