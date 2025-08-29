@@ -6,8 +6,18 @@ const defaultHeaders: Record<string, string> = {
 };
 
 export const Api = {
-  async get<T>(endpoint: string, headers?: Record<string, string>): Promise<T> {
-    const res = await fetch(`${baseUrl}${endpoint}`, {
+  async get<T>(
+    endpoint: string,
+    headers?: Record<string, string>,
+    searchParams?: Record<string, string>
+  ): Promise<T> {
+    const url = new URL(endpoint, baseUrl);
+
+    if (searchParams) {
+      url.search = new URLSearchParams(searchParams).toString();
+    }
+
+    const res = await fetch(url.toString(), {
       method: 'GET',
       headers: { ...defaultHeaders, ...headers },
     });

@@ -1,22 +1,28 @@
+'use client';
+
 import { TypographyH3, TypographyH4 } from '@/components/ui/typography';
+import { formatPriceRange } from '@/lib/utils';
+import { getCurrencySymbol, Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { selectCurrency } from '../../lib/redux/slices/currencySlice';
+import { useAppSelector } from '@/lib/redux/hooks';
 
 type Props = {
   url: string;
-  title: string;
-  description: string;
-  price: string;
-  thumbnail: string;
+  product: Product;
 };
 
-export default function ProductCard({
-  url,
-  title,
-  description,
-  price,
-  thumbnail,
-}: Props) {
+export default function ProductCard({ url, product }: Props) {
+  const currency = useAppSelector(selectCurrency);
+  const [price, setPrice] = useState<string>();
+  const { title, thumbnail, description } = product;
+
+  useEffect(() => {
+    setPrice(formatPriceRange(product.priceRange, getCurrencySymbol(currency)));
+  }, [product.priceRange, currency]);
+
   return (
     <Link href={url}>
       <div className="size-fit overflow-hidden rounded-xl border border-border">
