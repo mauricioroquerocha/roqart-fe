@@ -2,7 +2,7 @@ const baseUrl: string =
   process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'; // Set your default base URL here
 const defaultHeaders: Record<string, string> = {
   'Content-Type': 'application/json',
-  'x-publishable-api-key': process.env.PUBLISHABLE_API_KEY || '',
+  'x-publishable-api-key': process.env.NEXT_PUBLIC_PUBLISHABLE_API_KEY || '',
 };
 
 export const Api = {

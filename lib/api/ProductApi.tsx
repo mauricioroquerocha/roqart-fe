@@ -14,20 +14,28 @@ export const ProductApi = {
   // },
 
   async getAllProducts(currency?: CURRENCY_CODE): Promise<Paginated<Product>> {
-    const res = await Api.get<Paginated<Product>>('store/products', {
-      currency: currency ?? DEFAULT_CURRENCY,
-    });
+    const res = await Api.get<Paginated<Product>>(
+      'store/products/custom',
+      undefined,
+      {
+        currency_code: currency || DEFAULT_CURRENCY,
+      }
+    );
 
     return res;
   },
 
   async getProductById(
     productId: string,
-    currency?: CURRENCY_CODE
+    currency_code: CURRENCY_CODE = DEFAULT_CURRENCY
   ): Promise<ProductResponse> {
-    const res = await Api.get<ProductResponse>(`store/products/${productId}`, {
-      currency: currency ?? DEFAULT_CURRENCY,
-    });
+    const res = await Api.get<ProductResponse>(
+      `store/products/custom/${productId}`,
+      undefined,
+      {
+        currency_code,
+      }
+    );
 
     return res;
   },
