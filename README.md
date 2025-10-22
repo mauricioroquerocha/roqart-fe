@@ -50,3 +50,8 @@ See production environment here: [https://roqart-fe.vercel.app/](https://roqart-
 Interested in sharing feedback? Feel free to reach out via [LinkedIn](https://linkedin.com/in/mauricio-roque-rocha).
 
 ---
+
+## Production Structure
+
+<img width="495" height="541" alt="roqart_structure-Página-1" src="https://github.com/user-attachments/assets/3c1e0b14-b93f-457c-b43c-0e810a56162d" />
+
