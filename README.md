@@ -2,12 +2,19 @@
 
 A work-in-progress e-commerce platform for a 3D printing company.
 
+### Technologies used
+
+- Next.js
+- Shadcn UI
+- Tailwind
+
 ---
 
 ## 🚧 Project Status
 
 > **Currently in development**  
 > We're actively designing and building a modern, scalable online store focused on user experience.
+See production environment here: [https://roqart-fe.vercel.app/](https://roqart-fe.vercel.app/)
 
 ---
 
@@ -33,8 +40,8 @@ A work-in-progress e-commerce platform for a 3D printing company.
 
 ## 📅 Upcoming Tasks
 
-- [ ] Build core frontend components
-- [ ] Integrate backend logic and API
+- [ ] Cart feature
+- [ ] Payment feature
 
 ---
 
@@ -43,3 +50,8 @@ A work-in-progress e-commerce platform for a 3D printing company.
 Interested in sharing feedback? Feel free to reach out via [LinkedIn](https://linkedin.com/in/mauricio-roque-rocha).
 
 ---
+
+## Production Structure
+
+<img width="495" height="541" alt="roqart_structure-Página-1" src="https://github.com/user-attachments/assets/3c1e0b14-b93f-457c-b43c-0e810a56162d" />
+
