@@ -22,7 +22,7 @@
     "eslint-plugin-tailwindcss": "^3.18.0",
     "eslint-plugin-unicorn": "^59.0.1",
     "lucide-react": "^0.507.0",
-    "next": "latest",
+    "next": "15.5.8",
     "next-auth": "5.0.0-beta.25",
     "postcss": "8.5.1",
     "postgres": "^3.4.5",
