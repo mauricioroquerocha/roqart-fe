@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 export default function NavBar() {
   return (
-    <div className="w-fill flex h-28 flex-row items-center justify-between gap-20 bg-background px-16 py-6 sm:px-20 md:px-24 lg:px-28">
+    <div className="w-screen flex h-28 flex-row items-center justify-between gap-20 bg-background px-16 py-6 sm:px-20 md:px-24 lg:px-28 absolute">
       <div className="relative aspect-[4/1] h-8 sm:h-10 md:h-12 lg:h-14">
         <Link href="/">
           <Image src="/logo.png" alt="logo" object-fit="cover" fill></Image>
