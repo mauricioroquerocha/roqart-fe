@@ -3,6 +3,7 @@ import { montserrat } from '../ui/fonts';
 import '../ui/global.css';
 import React from 'react';
 import StoreProvider from '../StoreProvider';
+import Footer from '@/components/ui/Footer';
 
 export default function RootLayout({
   children,
@@ -15,7 +16,12 @@ export default function RootLayout({
         <div className="flex flex-col">
           <StoreProvider>
             <NavBar></NavBar>
-            <main className="bg-background pt-28">{children}</main>
+            <div className="flex h-screen flex-col justify-between">
+              <main className="h-screen bg-background px-28 pb-0 pt-28 md:content-center md:pt-36 lg:pt-36">
+                {children}
+              </main>
+              <Footer></Footer>
+            </div>
           </StoreProvider>
         </div>
       </body>
