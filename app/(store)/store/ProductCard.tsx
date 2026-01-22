@@ -6,7 +6,7 @@ import { getCurrencySymbol, Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { selectCurrency } from '../../lib/redux/slices/currencySlice';
+import { selectCurrency } from '@/lib/redux/slices/currencySlice';
 import { useAppSelector } from '@/lib/redux/hooks';
 
 type Props = {

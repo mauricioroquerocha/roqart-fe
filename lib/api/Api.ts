@@ -23,7 +23,8 @@ export const Api = {
     });
 
     if (!res.ok) {
-      throw new Error(`GET ${endpoint} failed`);
+      // throw new Error(`GET ${endpoint} failed`);
+      console.log('Fetch failed ');
     }
 
     return res.json();
