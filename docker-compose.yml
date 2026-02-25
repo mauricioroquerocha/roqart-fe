@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  nextjs:
+    build:
+      context: .
+      args:
+        - NODE_ENV=production
+        - NEXT_PUBLIC_API_URL=http://medusa_server:9000
+        - NEXT_PUBLIC_PUBLISHABLE_API_KEY=pk_314fa721ac30c44ef04fd048e66f321315fa6706df656b3f08d593dc95e54adb
+    container_name: nextjs_app
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - roqart-network
+
+networks:
+  roqart-network:
+    external: true

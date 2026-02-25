@@ -5,30 +5,65 @@ const defaultHeaders: Record<string, string> = {
   'x-publishable-api-key': process.env.NEXT_PUBLIC_PUBLISHABLE_API_KEY || '',
 };
 
-export const Api = {
-  async get<T>(
-    endpoint: string,
-    headers?: Record<string, string>,
-    searchParams?: Record<string, string>
-  ): Promise<T> {
-    const url = new URL(endpoint, baseUrl);
+// export const Api = {
+//   async get<T>(
+//     endpoint: string,
+//     headers?: Record<string, string>,
+//     searchParams?: Record<string, string>
+//   ): Promise<T> {
+//     const url = new URL(endpoint, baseUrl);
 
+//     console.error("URL: " + endpoint + baseUrl);
+
+//     if (searchParams) {
+//       url.search = new URLSearchParams(searchParams).toString();
+//     }
+
+//     const res = await fetch(url.toString(), {
+//       method: 'GET',
+//       headers: { ...defaultHeaders, ...headers },
+//     });
+
+//     console.(res);
+
+//     if (!res.ok) {
+//       // throw new Error(`GET ${endpoint} failed`);
+//       console.log('Fetch failed ');
+//     }
+
+//     return res.json();
+//   },
+export const Api = {
+  async get<T>(endpoint: string, headers?: Record<string, string>, searchParams?: Record<string, string>): Promise<T> {
+    const url = new URL(endpoint, baseUrl);
+    
     if (searchParams) {
       url.search = new URLSearchParams(searchParams).toString();
     }
 
-    const res = await fetch(url.toString(), {
-      method: 'GET',
-      headers: { ...defaultHeaders, ...headers },
-    });
+    // ESTO SALDRÁ EN DOCKER SI ES SSR, O EN F12 SI ES CLIENTE
+    console.log(`[API DEBUG] Llamando a: ${url.toString()}`);
 
-    if (!res.ok) {
-      // throw new Error(`GET ${endpoint} failed`);
-      console.log('Fetch failed ');
+    try {
+      const res = await fetch(url.toString(), {
+        method: 'GET',
+        headers: { ...defaultHeaders, ...headers },
+      });
+
+      if (!res.ok) {
+        const errorText = await res.text(); // Leer el error real
+        console.error(`[API ERROR] Status: ${res.status} - Body: ${errorText}`);
+        throw new Error(`Fetch failed: ${res.status}`);
+      }
+
+      return await res.json();
+    } catch (error) {
+      console.error("[API FATAL]", error);
+      throw error;
     }
+  }
+}
 
-    return res.json();
-  },
 
   // static async post<T>(
   //   endpoint: string,
@@ -75,4 +110,4 @@ export const Api = {
 
   //   return res.json();
   // }
-};
+

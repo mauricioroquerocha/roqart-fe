@@ -2,6 +2,8 @@ import { ProductApi } from '@/lib/api/ProductApi';
 import { Product } from '@/types';
 import ProductCard from './ProductCard';
 
+export const dynamic = 'force-dynamic';
+
 export default async function StorePage() {
   const { data: products } = await ProductApi.getAllProducts();
 
