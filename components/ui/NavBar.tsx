@@ -39,8 +39,8 @@ export default function NavBar() {
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className="text-primary font-medium" href="/login">
-              Sign In
+            <NavigationMenuLink className="text-primary font-medium" href="/dashboard">
+              Account
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>

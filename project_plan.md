@@ -14,7 +14,7 @@ This document outlines the tasks needed to complete the frontend application for
 ## 2. Authentication & User Accounts (`next-auth`)
 - [x] Configure `next-auth` providers (Credentials, Google/GitHub OAuth)
 - [x] Implement `Sign In` / `Sign Up` forms with `zod` validation
-- [ ] Create `User Dashboard` (Order history, saved addresses, payment methods)
+- [x] Create `User Dashboard` (Order history, saved addresses, payment methods)
 - [ ] Create `Creator/Designer Profile` pages
 
 ## 3. Product Catalog & Storefront (`app/(store)`)
