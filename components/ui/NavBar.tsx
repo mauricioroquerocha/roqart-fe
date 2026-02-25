@@ -38,9 +38,11 @@ export default function NavBar() {
               About Us
             </NavigationMenuLink>
           </NavigationMenuItem>
-          {/* <NavigationMenuItem>
-            <NavigationMenuLink>help</NavigationMenuLink>
-          </NavigationMenuItem> */}
+          <NavigationMenuItem>
+            <NavigationMenuLink className="text-primary font-medium" href="/login">
+              Sign In
+            </NavigationMenuLink>
+          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
       <Input

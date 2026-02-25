@@ -12,8 +12,8 @@ This document outlines the tasks needed to complete the frontend application for
 - [x] Setup API client architecture (fetch wrappers or MedusaJS JS client)
 
 ## 2. Authentication & User Accounts (`next-auth`)
-- [ ] Configure `next-auth` providers (Credentials, Google/GitHub OAuth)
-- [ ] Implement `Sign In` / `Sign Up` forms with `zod` validation
+- [x] Configure `next-auth` providers (Credentials, Google/GitHub OAuth)
+- [x] Implement `Sign In` / `Sign Up` forms with `zod` validation
 - [ ] Create `User Dashboard` (Order history, saved addresses, payment methods)
 - [ ] Create `Creator/Designer Profile` pages
 

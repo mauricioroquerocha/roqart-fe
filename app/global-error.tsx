@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { H2, P } from "@/components/ui/typography";
+import { TypographyH2, TypographyP } from "@/components/ui/typography";
 
 export default function GlobalError({
   error,
@@ -21,10 +21,10 @@ export default function GlobalError({
       <body>
         <div className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
           <div className="space-y-4 max-w-md">
-            <H2>Something went critically wrong!</H2>
-            <P className="text-muted-foreground">
-              A critical error occurred while rendering the application. We've been notified.
-            </P>
+            <TypographyH2>Something went critically wrong!</TypographyH2>
+            <TypographyP className="text-muted-foreground">
+              A critical error occurred while rendering the application. We&apos;ve been notified.
+            </TypographyP>
             <Button onClick={() => reset()} variant="default">
               Try again
             </Button>

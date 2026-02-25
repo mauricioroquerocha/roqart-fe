@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { H2, P } from "@/components/ui/typography";
+import { TypographyH2, TypographyP } from "@/components/ui/typography";
 
 export default function ErrorBoundary({
   error,
@@ -19,10 +19,10 @@ export default function ErrorBoundary({
   return (
     <div className="flex h-[70vh] flex-col items-center justify-center p-4 text-center">
       <div className="space-y-4 max-w-md border rounded-xl p-8 bg-card shadow-sm">
-        <H2 className="text-destructive">Oops, something went wrong!</H2>
-        <P className="text-muted-foreground">
+        <TypographyH2 className="text-destructive">Oops, something went wrong!</TypographyH2>
+        <TypographyP className="text-muted-foreground">
           We are having trouble loading this page. Please try again.
-        </P>
+        </TypographyP>
         <Button onClick={() => reset()} variant="secondary" className="mt-4">
           Try again
         </Button>
